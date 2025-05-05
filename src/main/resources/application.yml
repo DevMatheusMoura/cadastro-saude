@@ -1,1 +1,4 @@
-spring.application.name=cadastro-saude
+server:
+    servlet:
+        context-path: /cadastro-saude/api
+        
