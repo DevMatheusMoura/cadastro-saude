@@ -21,7 +21,7 @@ public class Documento {
 
     private UUID idDocumento;
     @NotBlank(message = "Informe o tipo do documento")
-    private String tipoDocumento;
+    private TipoDocumento tipoDocumento;
     @NotBlank(message = "Preenchimento obrigatório, descreva o tipo de documento")
     private String descricao;
 
@@ -31,7 +31,6 @@ public class Documento {
     public Documento(UUID idDocumento, String tipoDocumento, String descricao,
                      LocalDate dataInclusao, LocalDate dataAtualizacao) {
         this.idDocumento = UUID.randomUUID();
-        this.tipoDocumento = tipoDocumento;
         this.descricao = descricao;
         this.dataInclusao = LocalDateTime.now();
         this.dataAtualizacao = LocalDateTime.now();
