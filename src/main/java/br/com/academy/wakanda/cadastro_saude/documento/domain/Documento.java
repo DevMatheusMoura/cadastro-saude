@@ -18,7 +18,6 @@ import java.util.UUID;
 public class Documento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private UUID idDocumento;
     @NotBlank(message = "Informe o tipo do documento")
     private TipoDocumento tipoDocumento;

@@ -1,10 +1,12 @@
 package br.com.academy.wakanda.cadastro_saude.beneficiario.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @Entity
 public class Beneficiario {
     @Id
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private UUID idBeneficiario;
     @NotBlank(message = "Informe o seu nome completo")
     private String nomeCompleto;
