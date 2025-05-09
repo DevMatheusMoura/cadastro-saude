@@ -1,5 +1,6 @@
 package br.com.academy.wakanda.cadastro_saude.beneficiario.domain;
 
+import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -30,12 +31,11 @@ public class Beneficiario {
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
 
-    public Beneficiario(UUID idBeneficiario, String nomeCompleto, String telefone,
-                        LocalDate dataNascimento, LocalDate dataInclusao, LocalDateTime dataAtualizacao, LocalDateTime dataAtualizacao1) {
-        this.idBeneficiario = idBeneficiario;
-        this.nomeCompleto = nomeCompleto;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
+
+    public Beneficiario(BeneficiarioRequest beneficiarioRequest) {
+        this.nomeCompleto = beneficiarioRequest.getNomeCompleto();
+        this.telefone = beneficiarioRequest.getTelefone();
+        this.dataNascimento = beneficiarioRequest.getDataNascimento();
         this.dataAtualizacao = LocalDateTime.now();
         this.dataInclusao = LocalDateTime.now();
     }
