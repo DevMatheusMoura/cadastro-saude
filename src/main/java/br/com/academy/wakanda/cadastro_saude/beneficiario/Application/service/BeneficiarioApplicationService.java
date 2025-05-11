@@ -1,5 +1,6 @@
 package br.com.academy.wakanda.cadastro_saude.beneficiario.Application.service;
 
+import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioListResponse;
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioRequest;
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioResponse;
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.repository.BeneficiarioRepository;
@@ -7,6 +8,8 @@ import br.com.academy.wakanda.cadastro_saude.beneficiario.domain.Beneficiario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Log4j2
@@ -22,5 +25,12 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
         return BeneficiarioResponse.builder()
                 .idBeneficiario(beneficiario.getIdBeneficiario())
                 .build();
+    }
+
+    @Override
+    public List<BeneficiarioListResponse> buscaTodosBeneficiarios() {
+        log.info("[inicia] BeneficiarioApplicationService.buscaTodosBeneficiarios");
+        log.info("[finaliza] BeneficiarioApplicationService.buscaTodosBeneficiarios");
+        return null;
     }
 }
