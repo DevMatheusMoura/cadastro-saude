@@ -2,8 +2,10 @@ package br.com.academy.wakanda.cadastro_saude.beneficiario.infra;
 
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.repository.BeneficiarioRepository;
 import br.com.academy.wakanda.cadastro_saude.beneficiario.domain.Beneficiario;
+import br.com.academy.wakanda.cadastro_saude.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,8 +36,8 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
     @Override
     public Beneficiario buscaBeneficiario(UUID idBeneficiario) {
         log.info("[inicia] BeneficiarioInfraRepository.buscaBeneficiario");
-        Beneficiario beneficiario = beneficiarioSpringDataJPARepository.findById(idBeneficiario).orElseThrow(() ->
-                new RuntimeException("Beneficiario não encontrado"));
+        Beneficiario beneficiario = beneficiarioSpringDataJPARepository.findById(idBeneficiario)
+                .orElseThrow(() -> APIException .build(HttpStatus.NOT_FOUND, "Beneficiario não encontrado"));
         log.info("[finaliza] BeneficiarioInfraRepository.buscaBeneficiario");
         return beneficiario;
 
