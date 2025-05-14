@@ -23,4 +23,8 @@ public interface BeneficiarioAPI {
     @GetMapping("/{idBeneficiario}")
     @ResponseStatus(code = HttpStatus.OK)
     BeneficiarioDetalhadoResponse getBeneficiario(@PathVariable UUID idBeneficiario);
+
+    @DeleteMapping ("/{idBeneficiario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaBeneficiario(@PathVariable UUID idBeneficiario);
 }

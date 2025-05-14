@@ -38,5 +38,11 @@ public class BenefeciarioController implements BeneficiarioAPI {
         return beneficiario;
     }
 
-
+    @Override
+    public void deletaBeneficiario(UUID idBeneficiario) {
+        log.info("[inicia] BeneficiarioController - deletaBeneficiario");
+        beneficiarioService.deletaBeneficiario(idBeneficiario);
+        log.info("[finaliza] BeneficiarioController - deletaBeneficiario");
+    }
 }
+
