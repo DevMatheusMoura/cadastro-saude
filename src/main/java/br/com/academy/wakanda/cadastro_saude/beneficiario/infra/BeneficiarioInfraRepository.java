@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -28,5 +29,15 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
         List<Beneficiario> todosBeneficiarios = beneficiarioSpringDataJPARepository.findAll();
         log.info("[inicia] BeneficiarioInfraRepository.buscaTodosBeneficiarios");
         return todosBeneficiarios;
+    }
+
+    @Override
+    public Beneficiario buscaBeneficiario(UUID idBeneficiario) {
+        log.info("[inicia] BeneficiarioInfraRepository.buscaBeneficiario");
+        Beneficiario beneficiario = beneficiarioSpringDataJPARepository.findById(idBeneficiario).orElseThrow(() ->
+                new RuntimeException("Beneficiario não encontrado"));
+        log.info("[finaliza] BeneficiarioInfraRepository.buscaBeneficiario");
+        return beneficiario;
+
     }
 }

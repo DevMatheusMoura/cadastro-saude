@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -28,4 +29,14 @@ public class BenefeciarioController implements BeneficiarioAPI {
         log.info("[finaliza] BeneficiarioController.getTodosBeneficiarios");
         return beneficiarios;
     }
+
+    @Override
+    public BeneficiarioDetalhadoResponse getBeneficiario(UUID idBeneficiario) {
+        log.info("[inicia] BeneficiarioController.getTodosBeneficiarios");
+        BeneficiarioDetalhadoResponse beneficiario = beneficiarioService.buscaBeneficiario(idBeneficiario);
+        log.info("[finaliza] BeneficiarioController.getTodosBeneficiarios");
+        return beneficiario;
+    }
+
+
 }
