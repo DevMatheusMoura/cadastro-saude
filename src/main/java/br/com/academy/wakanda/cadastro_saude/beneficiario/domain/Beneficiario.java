@@ -40,4 +40,11 @@ public class Beneficiario {
         this.dataAtualizacao = LocalDateTime.now();
         this.dataInclusao = LocalDateTime.now();
     }
+
+    public void atualiza(BeneficiarioRequest beneficiarioRequest) {
+        this.nomeCompleto = beneficiarioRequest.getNomeCompleto();
+        this.telefone = beneficiarioRequest.getTelefone();
+        this.dataNascimento = beneficiarioRequest.getDataNascimento();
+        this.dataAtualizacao = LocalDateTime.now();
+    }
 }
