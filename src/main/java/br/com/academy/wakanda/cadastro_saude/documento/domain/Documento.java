@@ -1,9 +1,6 @@
 package br.com.academy.wakanda.cadastro_saude.documento.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Generated;
 import lombok.Getter;
@@ -17,8 +14,10 @@ import java.util.UUID;
 @Entity
 public class Documento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition =  "UUID",name = "idDocumento",updatable = false, nullable = false,unique = true)
     private UUID idDocumento;
+    @Enumerated(EnumType.STRING)
     @NotBlank(message = "Informe o tipo do documento")
     private TipoDocumento tipoDocumento;
     @NotBlank(message = "Preenchimento obrigatório, descreva o tipo de documento")

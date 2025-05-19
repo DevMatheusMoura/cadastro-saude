@@ -1,16 +1,16 @@
 package br.com.academy.wakanda.cadastro_saude.beneficiario.domain;
 
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioRequest;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -21,13 +21,20 @@ import java.util.UUID;
 public class Beneficiario {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
+    @Column(columnDefinition = "UUID",name = "idBeneficiario",updatable = false, nullable = false,unique = true)
     private UUID idBeneficiario;
     @NotBlank(message = "Informe o seu nome completo")
     private String nomeCompleto;
+    @CPF
+    @NotBlank(message = "Informe o CPF")
+    private String cpf;
     @NotBlank(message = "Informe um telefone válido com o DDD")
     private String telefone;
     @NotNull(message = "Informe a sua data de nascimento")
     private LocalDate dataNascimento;
+    @Email
+    private String email;
+
 
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
