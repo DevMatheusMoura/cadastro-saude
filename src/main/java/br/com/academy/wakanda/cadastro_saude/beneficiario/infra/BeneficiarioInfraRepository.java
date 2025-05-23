@@ -37,7 +37,7 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
     public Beneficiario buscaBeneficiario(UUID idBeneficiario) {
         log.info("[inicia] BeneficiarioInfraRepository.buscaBeneficiario");
         Beneficiario beneficiario = beneficiarioSpringDataJPARepository.findById(idBeneficiario)
-                .orElseThrow(() -> APIException .build(HttpStatus.NOT_FOUND, "Beneficiario não encontrado"));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Beneficiario não encontrado"));
         log.info("[finaliza] BeneficiarioInfraRepository.buscaBeneficiario");
         return beneficiario;
 

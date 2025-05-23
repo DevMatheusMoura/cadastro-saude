@@ -5,7 +5,7 @@ import lombok.Value;
 
 
 @Value
-public class DocumentoRequest {
+public class DocumentoAlteracaoRequest {
         @NotBlank(message = "Informe o tipo do documento")
         private String tipoDocumento;
         @NotBlank(message = "Preenchimento obrigatório, descreva o tipo de documento")

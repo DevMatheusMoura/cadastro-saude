@@ -1,6 +1,7 @@
 package br.com.academy.wakanda.cadastro_saude.beneficiario.domain;
 
 import br.com.academy.wakanda.cadastro_saude.beneficiario.Application.api.BeneficiarioRequest;
+import br.com.academy.wakanda.cadastro_saude.documento.domain.Documento;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +14,8 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -25,19 +28,15 @@ public class Beneficiario {
     private UUID idBeneficiario;
     @NotBlank(message = "Informe o seu nome completo")
     private String nomeCompleto;
-    @CPF
-    @NotBlank(message = "Informe o CPF")
-    private String cpf;
     @NotBlank(message = "Informe um telefone válido com o DDD")
     private String telefone;
     @NotNull(message = "Informe a sua data de nascimento")
     private LocalDate dataNascimento;
-    @Email
-    private String email;
 
 
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
+
 
 
     public Beneficiario(BeneficiarioRequest beneficiarioRequest) {
