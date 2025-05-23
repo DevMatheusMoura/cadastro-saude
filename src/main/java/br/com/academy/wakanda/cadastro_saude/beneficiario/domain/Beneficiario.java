@@ -28,6 +28,8 @@ public class Beneficiario {
     private UUID idBeneficiario;
     @NotBlank(message = "Informe o seu nome completo")
     private String nomeCompleto;
+    @CPF
+    private String cpf;
     @NotBlank(message = "Informe um telefone válido com o DDD")
     private String telefone;
     @NotNull(message = "Informe a sua data de nascimento")

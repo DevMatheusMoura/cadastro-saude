@@ -11,6 +11,7 @@ import java.util.UUID;
 public class BeneficiarioListResponse {
     private UUID idBeneficiario;
     private String nomeCompleto;
+    private String cpf;
     private String telefone;
     private LocalDate dataNascimento;
 
@@ -23,6 +24,7 @@ public class BeneficiarioListResponse {
     private BeneficiarioListResponse(Beneficiario beneficiario) {
         this.idBeneficiario = beneficiario.getIdBeneficiario();
         this.nomeCompleto = beneficiario.getNomeCompleto();
+        this.cpf = beneficiario.getCpf();
         this.telefone = beneficiario.getTelefone();
         this.dataNascimento = beneficiario.getDataNascimento();
     }
